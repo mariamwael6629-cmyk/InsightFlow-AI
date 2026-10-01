@@ -1,0 +1,25 @@
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .bento-card.c1, .bento-card.c4, .bento-card.c6,
+  .bento-card.c5, .bento-card.c7, .bento-card.c8,
+  .bento-card.c9, .bento-card.c12, .bento-card.c3 {
+    grid-column: span 12;
+  }
+  .ps-grid       { grid-template-columns: 1fr; }
+  .testi-grid    { grid-template-columns: 1fr; }
+  .pricing-grid  { grid-template-columns: 1fr; }
+  .metric-row    { grid-template-columns: repeat(2, 1fr); }
+  .analytics-grid { grid-template-columns: 1fr; }
+  .reports-grid  { grid-template-columns: 1fr 1fr; }
+  .settings-grid { grid-template-columns: 1fr; }
+  .field-grid    { grid-template-columns: 1fr; }
+  .stats-row     { flex-wrap: wrap; }
+  .stat-item     { flex: 1 1 40%; }
+}
+@media (max-width: 560px) {
+  .reports-grid { grid-template-columns: 1fr; }
+  nav { padding: 0 14px; }
+  .nav-logo { font-size: 14px; }
+  .nav-link  { padding: 5px 8px; font-size: 12px; }
+  .nav-cta   { padding: 6px 12px; font-size: 12px; }
+}

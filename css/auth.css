@@ -1,0 +1,58 @@
+/* ── AUTH OVERLAY ── */
+.auth-overlay {
+  position: fixed; inset: 0;
+  background: rgba(245,243,239,0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.auth-overlay.hidden { display: none; }
+.auth-card {
+  width: 100%; max-width: 380px;
+  background: var(--white);
+  border: 1px solid var(--border2);
+  border-radius: var(--r-lg); padding: 32px;
+  box-shadow: var(--shadow-md);
+}
+.auth-logo {
+  text-align: center;
+  font-family: var(--f-display);
+  font-size: 20px; font-weight: 400;
+  color: var(--ink); margin-bottom: 22px;
+}
+.auth-tabs {
+  display: flex; gap: 6px;
+  background: var(--paper);
+  border-radius: var(--r); padding: 4px; margin-bottom: 22px;
+}
+.auth-tab {
+  flex: 1; padding: 8px; border: none; background: none;
+  border-radius: var(--r); color: var(--ink-2);
+  font-size: 13px; font-weight: 600; cursor: pointer; font-family: var(--font);
+}
+.auth-tab.active { background: var(--white); color: var(--ink); box-shadow: var(--shadow-sm); }
+.auth-form .field-group { margin-bottom: 14px; }
+.auth-error { color: var(--danger); font-size: 12px; min-height: 14px; margin-top: 6px; }
+.auth-hint  { font-size: 11px; color: var(--ink-3); text-align: center; margin-top: 14px; }
+
+.settings-nav-user { padding: 10px 14px 16px; border-bottom: 1px solid var(--border); margin-bottom: 8px; }
+.settings-nav-user .name  { font-size: 13px; font-weight: 600; color: var(--ink); }
+.settings-nav-user .email { font-size: 11px; color: var(--ink-3); margin-top: 2px; }
+.logout-btn {
+  width: 100%; margin-top: 8px; padding: 9px 14px;
+  border-radius: var(--r); font-size: 13px;
+  color: var(--danger); background: var(--danger-bg);
+  border: 1px solid rgba(197,48,48,0.18);
+  cursor: pointer; font-family: var(--font); font-weight: 600;
+}
+.logout-btn:hover { background: rgba(197,48,48,0.12); }
+
+.toggle-switch { width: 42px; height: 24px; border-radius: 100px; position: relative; cursor: pointer; flex-shrink: 0; transition: background .2s; }
+.toggle-switch .knob { position: absolute; top: 3px; width: 18px; height: 18px; background: #fff; border-radius: 50%; transition: left .2s; }
+.toggle-switch.on  { background: var(--accent); }
+.toggle-switch.on .knob  { left: 21px; }
+.toggle-switch.off { background: var(--paper-2); border: 1px solid var(--border2); }
+.toggle-switch.off .knob { left: 3px; background: var(--ink-3); }
+.empty-state { font-size: 13px; color: var(--ink-3); padding: 12px 0; }

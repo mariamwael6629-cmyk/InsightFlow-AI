@@ -1,0 +1,60 @@
+:root {
+  /* ── New palette ── */
+  --paper:        #f5f3ef;
+  --paper-2:      #ece9e3;
+  --white:        #ffffff;
+  --ink:          #0d1117;
+  --ink-2:        #4a5260;
+  --ink-3:        #8b939f;
+  --border:       rgba(0,0,0,0.07);
+  --border2:      rgba(0,0,0,0.12);
+  --accent:       #3a5496;
+  --accent-lite:  #c5cfe8;
+  --accent-soft:  #e8ecf5;
+  --good:         #267a4e;
+  --good-bg:      #e3f5ec;
+  --warn:         #a0520a;
+  --warn-bg:      #fdf3e2;
+  --danger:       #c53030;
+  --danger-bg:    #fde8e6;
+
+  /* ── Legacy aliases — so existing HTML inline styles keep working ── */
+  --bg:           var(--paper);
+  --bg2:          var(--paper-2);
+  --bg3:          var(--white);
+  --glass:        var(--white);
+  --glass2:       var(--paper-2);
+  --text:         var(--ink);
+  --text2:        var(--ink-2);
+  --text3:        var(--ink-3);
+  --purple:       var(--accent);
+  --purple2:      var(--accent);
+  --orange:       var(--warn);
+  --pink:         var(--accent);
+  --teal:         var(--good);
+  --glow-p:       transparent;
+  --glow-o:       transparent;
+  --glow-k:       transparent;
+
+  /* ── Typography ── */
+  --font:         'Inter', system-ui, -apple-system, sans-serif;
+  --f-display:    'DM Serif Display', Georgia, serif;
+  --f-mono:       'DM Mono', 'Courier New', monospace;
+
+  /* ── Shape & shadow ── */
+  --r:            6px;
+  --r-md:         10px;
+  --r-lg:         16px;
+  --shadow-sm:    0 1px 4px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04);
+  --shadow-md:    0 4px 16px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  min-height: 100vh;
+  overflow-x: hidden;
+}

@@ -28,7 +28,12 @@ InsightFlow AI is a cutting-edge customer feedback intelligence platform designe
 ## 📂 Project Structure
 
 ```text
-├── insightflow-ai.html    # Main application: Landing, Analytics, Reports, and Settings pages
+├── insightflow-ai.html    # Main application shell: Landing, Analytics, Reports, and Settings pages
+├── css/                    # tokens, nav, one stylesheet per page, auth overlay, responsive
+├── js/
+│   ├── core/               # api client, page navigation, helpers
+│   ├── features/           # auth, hero-chart, analytics, reports, settings
+│   └── main.js             # Silent session check on load
 ├── backend/                # FastAPI backend
 │   ├── app/
 │   │   ├── core/           # Settings + security (JWT, password hashing)
