@@ -6,28 +6,36 @@
 <title>InsightFlow AI — Customer Feedback Intelligence Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@600;700;800&family=Sofia+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
   :root {
     /* ── New palette ── */
-    --paper:        #f5f3ef;
-    --paper-2:      #ece9e3;
+    /* "Switchboard" system: office-grey ground, bakelite panel, lamp colours
+       for sentiment (green / amber / red), brass for the brand. See DESIGN.md. */
+    --paper:        #F1F2F3;
+    --paper-2:      #E5E7EA;
     --white:        #ffffff;
-    --ink:          #0d1117;
-    --ink-2:        #4a5260;
-    --ink-3:        #8b939f;
-    --border:       rgba(0,0,0,0.07);
-    --border2:      rgba(0,0,0,0.12);
-    --accent:       #3a5496;
-    --accent-lite:  #c5cfe8;
-    --accent-soft:  #e8ecf5;
-    --good:         #267a4e;
-    --good-bg:      #e3f5ec;
-    --warn:         #a0520a;
-    --warn-bg:      #fdf3e2;
-    --danger:       #c53030;
-    --danger-bg:    #fde8e6;
+    --ink:          #15171A;
+    --ink-2:        #474C55;
+    --ink-3:        #676D77;
+    --border:       rgba(21,23,26,0.10);
+    --border2:      rgba(21,23,26,0.20);
+    --accent:       #8A6320;
+    --accent-lite:  #E6D3AE;
+    --accent-soft:  #F5EDDC;
+    --good:         #1E7A4E;
+    --good-bg:      #E1F2E8;
+    --warn:         #9A5B00;
+    --warn-bg:      #FBEFD6;
+    --danger:       #BF3328;
+    --danger-bg:    #FBE4E1;
+    --panel:        #17191C;
+    --panel-2:      #22252A;
+    --brass:        #C9A15A;
+    --lamp-g:       #3FD18A;
+    --lamp-a:       #F5B73D;
+    --lamp-r:       #FF6A55;
 
     /* ── Legacy aliases — so existing HTML inline styles keep working ── */
     --bg:           var(--paper);
@@ -48,9 +56,9 @@
     --glow-k:       transparent;
 
     /* ── Typography ── */
-    --font:         'Inter', system-ui, -apple-system, sans-serif;
-    --f-display:    'DM Serif Display', Georgia, serif;
-    --f-mono:       'DM Mono', 'Courier New', monospace;
+    --font:         'Sofia Sans', system-ui, -apple-system, sans-serif;
+    --f-display:    'Sofia Sans Condensed', 'Sofia Sans', sans-serif;
+    --f-mono:       'Sofia Sans', system-ui, sans-serif;
 
     /* ── Shape & shadow ── */
     --r:            6px;
@@ -876,6 +884,77 @@
     .nav-link  { padding: 5px 8px; font-size: 12px; }
     .nav-cta   { padding: 6px 12px; font-size: 12px; }
   }
+
+  /* ══ SWITCHBOARD LAYER ══ */
+  ::selection { background: var(--brass); color: var(--panel); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  body { font-size: 16px; }
+  .nav-logo { font-family: var(--f-display); font-weight: 800; font-size: 20px; letter-spacing: .01em; display: flex; align-items: center; gap: 8px; }
+  .nav-lamp { width: 10px; height: 10px; border-radius: 50%; background: var(--lamp-g); box-shadow: 0 0 0 3px rgba(63,209,138,.2); }
+  nav { height: 60px; border-bottom: 2px solid var(--ink); background: var(--paper); }
+  .nav-link { font-size: 15px; }
+  .nav-link.active { background: transparent; box-shadow: inset 0 -2px 0 var(--ink); border-radius: 0; font-weight: 700; }
+  .nav-cta, .btn-primary { background: var(--ink); color: #fff; border-radius: 4px; }
+  .nav-cta:hover, .btn-primary:hover { background: var(--accent); opacity: 1; transform: none; }
+  .page { max-width: 1240px; }
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(32px, 5vw, 72px); align-items: center; text-align: left; padding: clamp(40px, 6vw, 88px) 0 40px; }
+  .hero-badge { background: none; border: none; padding: 0; color: var(--ink-2); font-size: 14px; }
+  .hero-badge .dot { background: var(--lamp-g); }
+  h1.hero-title { font-family: var(--f-display); font-weight: 800; font-size: clamp(42px, 5.6vw, 80px); line-height: .95; letter-spacing: -.01em; text-transform: none; }
+  .grad-text { color: inherit; font-style: normal; box-shadow: inset 0 -.18em 0 var(--accent-lite); }
+  .hero-sub { margin: 0 0 32px; max-width: 46ch; }
+  .hero-actions { justify-content: flex-start; }
+  .switchboard { background: var(--panel); color: #ECEDEF; border-radius: 10px; padding: 18px 20px 22px; box-shadow: 0 30px 50px -30px rgba(0,0,0,.6); }
+  .sb-head { display: flex; justify-content: space-between; font-family: var(--f-display); font-weight: 700; font-size: 15px; letter-spacing: .06em; text-transform: uppercase; color: var(--brass); padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.1); margin-bottom: 14px; }
+  .sb-live { display: inline-flex; align-items: center; gap: 6px; color: #ECEDEF; letter-spacing: .02em; }
+  .sb-live i { width: 8px; height: 8px; border-radius: 50%; background: var(--lamp-r); animation: lamp 1.6s infinite; }
+  .sb-body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(40px, .45fr) minmax(0, 1fr); align-items: stretch; }
+  .sb-jacks { display: grid; grid-template-rows: repeat(6, 1fr); gap: 6px; }
+  .sb-jack { display: grid; grid-template-columns: 14px 1fr auto 18px; align-items: center; gap: 10px; background: var(--panel-2); border-radius: 6px; padding: 9px 10px; font-size: 15px; }
+  .sb-jack .lamp { width: 12px; height: 12px; border-radius: 50%; }
+  .j-g .lamp { background: var(--lamp-g); box-shadow: 0 0 10px rgba(63,209,138,.55); }
+  .j-a .lamp { background: var(--lamp-a); box-shadow: 0 0 10px rgba(245,183,61,.5); }
+  .j-r .lamp { background: var(--lamp-r); box-shadow: 0 0 10px rgba(255,106,85,.5); }
+  .sb-count { font-variant-numeric: tabular-nums; color: #B9BDC4; font-size: 14px; }
+  .socket { width: 16px; height: 16px; border-radius: 50%; background: #0D0E10; box-shadow: inset 0 0 0 3px var(--brass); }
+  .sb-cords { width: 100%; height: 100%; overflow: visible; }
+  .sb-cords path { fill: none; stroke-width: 3; stroke-linecap: round; opacity: .9; }
+  .sb-meter { align-self: center; background: #0F1012; border: 1px solid rgba(201,161,90,.4); border-radius: 8px; padding: 16px; }
+  .sb-meter-k { font-size: 13px; color: var(--brass); font-weight: 700; }
+  .sb-meter-v { font-family: var(--f-display); font-weight: 800; font-size: 56px; line-height: 1; }
+  .sb-meter-v small { font-size: 18px; color: #B9BDC4; font-weight: 600; }
+  .sb-meter-d { color: var(--lamp-g); font-size: 14px; font-weight: 700; margin: 4px 0 10px; }
+  .sb-meter-bar { height: 6px; background: #2A2D33; border-radius: 3px; overflow: hidden; }
+  .sb-meter-bar span { display: block; height: 100%; background: var(--lamp-g); }
+  .sb-meter-n { font-size: 13px; color: #B9BDC4; margin-top: 10px; }
+  @keyframes lamp { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+  @media (prefers-reduced-motion: no-preference) {
+    .sb-cords path { stroke-dasharray: 260; animation: cord 1.2s cubic-bezier(.16,1,.3,1) both; }
+    .sb-cords path:nth-child(2n) { animation-delay: .1s; } .sb-cords path:nth-child(3n) { animation-delay: .2s; }
+    .sb-jack.blink .lamp { animation: lamp .5s 2; }
+  }
+  @keyframes cord { from { stroke-dashoffset: 260; } to { stroke-dashoffset: 0; } }
+  .hero-chart-wrap { background: var(--white); border: 1px solid var(--border2); border-radius: 10px; padding: 18px 20px; margin: 0 0 56px; }
+  .hero-chart-glow { display: none; }
+  .hero-chart-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 15px; margin-bottom: 10px; }
+  .hero-chart-head span { display: inline-flex; gap: 6px; align-items: center; color: var(--ink-2); font-size: 14px; }
+  .hero-chart-head i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; margin-left: 10px; }
+  .k-g { background: var(--good); } .k-r { background: var(--danger); }
+  .section-label, .card-tag { font-family: var(--font); font-size: 14px; letter-spacing: 0; text-transform: none; font-weight: 700; color: var(--accent); }
+  .section-title, .page-title { font-family: var(--f-display); font-weight: 800; letter-spacing: -.005em; }
+  .stat-num, .stat-big { font-family: var(--f-display); font-weight: 800; }
+  .ei { display: inline-block; vertical-align: -.15em; }
+  .grad-text { box-shadow: none; color: var(--accent); }
+  h1.hero-title .grad-text { color: inherit; box-shadow: inset 0 -.18em 0 var(--accent-lite); }
+  .card-tag, .section-label, .price-name, .m-label, .comp-row.header, .rec-priority { text-transform: none !important; letter-spacing: 0 !important; font-size: 14px !important; }
+  .ei-wrap { display: contents; }
+  @media (max-width: 960px) {
+    .hero { grid-template-columns: minmax(0, 1fr); }
+    .sb-body { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .sb-cords { display: none; }
+    .sb-jacks { grid-template-columns: 1fr 1fr; grid-template-rows: none; }
+  }
+  @media (max-width: 520px) { .sb-jacks { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -883,7 +962,7 @@
 <!-- ══ AUTH OVERLAY (gates Analytics / Reports / Settings) ══ -->
 <div id="auth-overlay" class="auth-overlay hidden">
   <div class="auth-card">
-    <div class="auth-logo">✦ InsightFlow AI</div>
+    <div class="auth-logo">InsightFlow AI</div>
     <div class="auth-tabs">
       <button class="auth-tab active" data-tab="login" onclick="setAuthTab('login')" type="button">Sign In</button>
       <button class="auth-tab" data-tab="register" onclick="setAuthTab('register')" type="button">Create Account</button>
@@ -927,7 +1006,7 @@
 
 <!-- ══ NAVIGATION ══ -->
 <nav>
-  <div class="nav-logo">✦ InsightFlow AI</div>
+  <div class="nav-logo"><span class="nav-lamp"></span>InsightFlow AI</div>
   <div class="nav-links">
     <button class="nav-link active" onclick="showPage('landing',this)">Home</button>
     <button class="nav-link" onclick="showPage('analytics',this)">Analytics</button>
@@ -945,24 +1024,42 @@
 
   <!-- Hero -->
   <div class="hero">
-    <div class="hero-badge">
-      <span class="dot"></span>
-      Powered by Advanced AI &nbsp;·&nbsp; 10,000+ Businesses Trust Us
+    <div class="hero-copy">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Powered by advanced AI · 10,000+ businesses
+      </div>
+      <h1 class="hero-title">Every channel of customer feedback, <span class="grad-text">on one board</span></h1>
+      <p class="hero-sub">
+        InsightFlow AI collects feedback from email, reviews, surveys and social, sorts it by topic and sentiment, and tells your team what to fix first.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showPage('analytics',document.querySelectorAll('.nav-link')[1])">Start free trial</button>
+        <button class="btn-ghost" onclick="showPage('analytics',document.querySelectorAll('.nav-link')[1])">See the live demo</button>
+      </div>
     </div>
-    <h1 class="hero-title">
-      Turn Customer Feedback<br>into <span class="grad-text">Growth Signals</span>
-    </h1>
-    <p class="hero-sub">
-      InsightFlow AI automatically collects, categorizes, and analyzes feedback from every channel — giving your team actionable intelligence in seconds.
-    </p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="showPage('analytics',document.querySelectorAll('.nav-link')[1])">Start Free Trial →</button>
-      <button class="btn-ghost" onclick="showPage('analytics',document.querySelectorAll('.nav-link')[1])">See Live Demo</button>
+    <div class="switchboard" aria-label="Example: six feedback channels patched into one mood score" data-ui>
+      <div class="sb-head"><span>Incoming feedback</span><span class="sb-live"><i></i>Live</span></div>
+      <div class="sb-body">
+        <div class="sb-jacks"><div class="sb-jack j-g"><span class="lamp"></span><span class="sb-name">Email</span><span class="sb-count">412</span><span class="socket"></span></div><div class="sb-jack j-a"><span class="lamp"></span><span class="sb-name">Reviews</span><span class="sb-count">1,036</span><span class="socket"></span></div><div class="sb-jack j-g"><span class="lamp"></span><span class="sb-name">Surveys</span><span class="sb-count">608</span><span class="socket"></span></div><div class="sb-jack j-r"><span class="lamp"></span><span class="sb-name">Social</span><span class="sb-count">389</span><span class="socket"></span></div><div class="sb-jack j-g"><span class="lamp"></span><span class="sb-name">Support chat</span><span class="sb-count">274</span><span class="socket"></span></div><div class="sb-jack j-a"><span class="lamp"></span><span class="sb-name">App store</span><span class="sb-count">128</span><span class="socket"></span></div></div>
+        <svg class="sb-cords" viewBox="0 0 160 300" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 25 C 70 25, 90 150, 160 150" stroke="#3FD18A"/><path d="M0 75 C 70 75, 90 150, 160 150" stroke="#F5B73D"/>
+          <path d="M0 125 C 70 125, 90 150, 160 150" stroke="#3FD18A"/><path d="M0 175 C 70 175, 90 150, 160 150" stroke="#FF6A55"/>
+          <path d="M0 225 C 70 225, 90 150, 160 150" stroke="#3FD18A"/><path d="M0 275 C 70 275, 90 150, 160 150" stroke="#F5B73D"/>
+        </svg>
+        <div class="sb-meter">
+          <div class="sb-meter-k">Mood score</div>
+          <div class="sb-meter-v">8.7<small>/10</small></div>
+          <div class="sb-meter-d">+0.4 this week</div>
+          <div class="sb-meter-bar"><span style="width:87%"></span></div>
+          <div class="sb-meter-n">2,847 responses this week</div>
+        </div>
+      </div>
     </div>
-    <div class="hero-chart-wrap">
-      <div class="hero-chart-glow"></div>
-      <canvas id="heroChart" role="img" aria-label="Line chart showing customer sentiment trending upward over 12 months. Positive sentiment rises from 55% to 75%, while negative sentiment falls from 22% to 9%.">Positive sentiment rising from 55% to 75% over 12 months. Negative sentiment falling from 22% to 9%.</canvas>
-    </div>
+  </div>
+  <div class="hero-chart-wrap">
+    <div class="hero-chart-head"><b>Sentiment, last 12 months</b><span><i class="k-g"></i>Positive <i class="k-r"></i>Negative</span></div>
+    <canvas id="heroChart" role="img" aria-label="Line chart showing customer sentiment trending upward over 12 months. Positive sentiment rises from 55% to 75%, while negative sentiment falls from 22% to 9%.">Positive sentiment rising from 55% to 75% over 12 months. Negative sentiment falling from 22% to 9%.</canvas>
   </div>
 
   <!-- Stats Row -->
@@ -987,7 +1084,7 @@
 
   <!-- Bento Product Preview -->
   <div style="margin-bottom:28px;">
-    <p class="section-label">Product Preview</p>
+    <p class="section-label">Product preview</p>
     <h2 class="section-title">Everything in one workspace</h2>
     <p class="section-sub">A unified intelligence platform built for feedback at scale.</p>
   </div>
@@ -997,7 +1094,7 @@
     <div class="bento-card c1" style="background:var(--accent-soft);border-color:var(--accent-lite);">
       <div class="card-tag">AI Sentiment Engine</div>
       <div class="card-title" style="font-size:26px;">98.2% Accuracy</div>
-      <div class="card-desc">Our fine-tuned model understands nuanced customer emotion — sarcasm, mixed signals, and cultural context across 40+ languages.</div>
+      <div class="card-desc">Our fine-tuned model reads sarcasm, mixed signals and cultural context, in more than 40 languages.</div>
       <div class="sent-bar-wrap">
         <div class="sent-row">
           <span class="sent-label">Positive</span>
@@ -1052,7 +1149,7 @@
       <div class="card-title" style="font-size:18px;">Improve checkout flow</div>
       <div class="card-desc" style="margin-top:8px;">34 customers mentioned friction at the payment step. Estimated revenue impact: <strong style="color:var(--warn);">+$12K/mo</strong></div>
       <div style="margin-top:14px;display:flex;gap:7px;flex-wrap:wrap;">
-        <span class="tag" style="background:var(--danger-bg);color:var(--danger);font-size:11px;">HIGH IMPACT</span>
+        <span class="tag" style="background:var(--danger-bg);color:var(--danger);font-size:12px;">High impact</span>
         <span class="tag" style="background:var(--paper-2);color:var(--ink-2);font-size:11px;">UX / Product</span>
       </div>
     </div>
@@ -1643,14 +1740,14 @@ window.addEventListener('load', () => {
         {
           label: 'Positive',
           data: [55,58,61,60,64,67,65,69,71,70,72,75],
-          borderColor: '#3a5496',
-          backgroundColor: 'rgba(58,84,150,0.07)',
+          borderColor: '#1E7A4E',
+          backgroundColor: 'rgba(30,122,78,0.07)',
           fill: true, tension: 0.45, pointRadius: 0, borderWidth: 2.5
         },
         {
           label: 'Negative',
           data: [22,20,18,19,15,14,16,12,11,13,10,9],
-          borderColor: '#c53030',
+          borderColor: '#BF3328',
           backgroundColor: 'rgba(197,48,48,0.04)',
           fill: true, tension: 0.45, pointRadius: 0, borderWidth: 1.5, borderDash: [5,5]
         }
@@ -1718,9 +1815,9 @@ async function loadTrendChart() {
   const data = {
     labels: points.map(p => new Date(p.stat_date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'short' })),
     datasets: [
-      { label: 'Positive', data: points.map(p => p.positive_pct), borderColor: '#3a5496', backgroundColor: 'rgba(58,84,150,0.06)', fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#3a5496', borderWidth: 2 },
+      { label: 'Positive', data: points.map(p => p.positive_pct), borderColor: '#1E7A4E', backgroundColor: 'rgba(30,122,78,0.06)', fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#1E7A4E', borderWidth: 2 },
       { label: 'Neutral',  data: points.map(p => p.neutral_pct),  borderColor: '#8b939f', backgroundColor: 'transparent', tension: 0.4, pointRadius: 4, pointBackgroundColor: '#8b939f', borderWidth: 2, borderDash: [5,4] },
-      { label: 'Negative', data: points.map(p => p.negative_pct), borderColor: '#c53030', backgroundColor: 'transparent', tension: 0.4, pointRadius: 4, pointBackgroundColor: '#c53030', borderWidth: 2, borderDash: [3,3] }
+      { label: 'Negative', data: points.map(p => p.negative_pct), borderColor: '#BF3328', backgroundColor: 'transparent', tension: 0.4, pointRadius: 4, pointBackgroundColor: '#BF3328', borderWidth: 2, borderDash: [3,3] }
     ]
   };
   if (trendChartInstance) {
@@ -1998,5 +2095,145 @@ window.addEventListener('load', async () => {
 });
 </script>
 
+<script>
+/* Switchboard: a random channel lamp flickers every few seconds, like a call coming in. */
+(function(){ if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  setInterval(function(){ var j=document.querySelectorAll('.sb-jack'); if(!j.length) return; var el=j[Math.floor(Math.random()*j.length)]; el.classList.remove('blink'); void el.offsetWidth; el.classList.add('blink'); }, 2200); })();
+/* Emoji → line icon. Interface glyphs are drawn as one consistent SVG set
+   (24px grid, 1.8 stroke). Content data keeps its emoji; this only swaps what
+   is rendered. Emoji outside the map are left alone. */
+(function () {
+  const P = {
+    globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>',
+    wifi: '<path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0M12 19.5h.01"/>',
+    scale: '<path d="M12 3v18M7 21h10M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/>',
+    shuffle: '<path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/>',
+    gear: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/>',
+    lock: '<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+    search: '<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/>',
+    database: '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/>',
+    bolt: '<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+    disk: '<path d="M5 3h11l3 3v15H5z"/><path d="M8 3v5h7V3M8 21v-7h8v7"/>',
+    mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+    chart: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+    gauge: '<path d="M12 14l4-4M4 18a9 9 0 1 1 16 0"/>',
+    trash: '<path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14"/>',
+    link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+    scissors: '<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/>',
+    export: '<path d="M12 15V3M7 8l5-5 5 5M5 14v6h14v-6"/>',
+    undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>',
+    layers: '<path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/>',
+    film: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/>',
+    car: '<path d="M5 17h14v-5l-2-5H7l-2 5zM5 12h14"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/>',
+    chat: '<path d="M4 5h16v11H9l-5 4z"/>',
+    camera: '<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>',
+    box: '<path d="m12 3 9 4.5v9L12 21l-9-4.5v-9z"/><path d="m3 7.5 9 4.5 9-4.5M12 12v9"/>',
+    archive: '<rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v11h14V9M10 13h4"/>',
+    refresh: '<path d="M20 11a8 8 0 0 0-14.7-4.3M4 4v4h4M4 13a8 8 0 0 0 14.7 4.3M20 20v-4h-4"/>',
+    trophy: '<path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4a3 3 0 0 0 4 4M16 6h4a3 3 0 0 1-4 4M12 13v4M8 21h8M9 17h6v4H9z"/>',
+    flame: '<path d="M12 3c1 4 5 5 5 10a5 5 0 0 1-10 0c0-3 2-4 2-7 1.5 1 3 2.5 3 4 0-2 0-5 0-7z"/>',
+    bulb: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9V16h7v-2.1A6 6 0 0 0 12 3z"/>',
+    book: '<path d="M4 4h6a3 3 0 0 1 2 1 3 3 0 0 1 2-1h6v15h-6a2 2 0 0 0-2 2 2 2 0 0 0-2-2H4z"/><path d="M12 5v16"/>',
+    calendar: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+    eye: '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    hash: '<path d="M5 9h15M4 15h15M10 3 8 21M16 3l-2 18"/>',
+    note: '<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/>',
+    rocket: '<path d="M5 15c-1 1-2 5-2 5s4-1 5-2M12 15l-3-3c1-5 5-9 10-9 0 5-4 9-9 10z"/><circle cx="15" cy="9" r="1.5"/>',
+    crown: '<path d="M3 7l4 5 5-7 5 7 4-5-2 12H5z"/>',
+    star: '<path d="M12 3l2.8 5.9 6.2.9-4.5 4.4 1 6.3L12 17.6 6.5 20.5l1-6.3L3 9.8l6.2-.9z"/>',
+    users: '<circle cx="9" cy="8" r="3.5"/><path d="M2 20a7 7 0 0 1 14 0M16 4.5a3.5 3.5 0 0 1 0 7M22 20a7 7 0 0 0-5-6.7"/>',
+    heart: '<path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"/>',
+    bookmark: '<path d="M6 3h12v18l-6-4-6 4z"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
+    check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+    alert: '<path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.5"/>',
+    x: '<path d="M6 6l12 12M18 6L6 18"/>',
+    menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+    target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/>',
+    robot: '<rect x="4" y="8" width="16" height="12" rx="2"/><path d="M12 4v4M9 13h.01M15 13h.01M9 17h6"/>',
+    doc: '<path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',
+    folder: '<path d="M3 6a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/>',
+    user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+    bell: '<path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9zM10 20a2 2 0 0 0 4 0"/>',
+    money: '<rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/>',
+    sparkle: '<path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z"/>',
+    pin: '<path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/>',
+    key: '<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/>',
+    mic: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>',
+    phone: '<path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/>',
+    home: '<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/>',
+    code: '<path d="m8 8-5 4 5 4M16 8l5 4-5 4M14 4l-4 16"/>',
+    cloud: '<path d="M7 18a5 5 0 0 1 0-10 6 6 0 0 1 11.3 1.5A4.3 4.3 0 0 1 18 18z"/>',
+    shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>',
+    play: '<path d="M7 4v16l13-8z"/>',
+    plus: '<path d="M12 5v14M5 12h14"/>',
+    up: '<path d="M7 17 17 7M8 7h9v9"/>',
+    down: '<path d="M7 7l10 10M17 8v9H8"/>',
+    pause: '<path d="M8 5v14M16 5v14"/>',
+    wand: '<path d="M4 20 15 9M14 4v3M18 6l-2 2M20 10h-3M9 4l1 2"/>',
+    brain: '<path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 0V7a3 3 0 0 0-3-3zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 0"/>',
+    smile: '<circle cx="12" cy="12" r="9"/><path d="M8.5 14.5a4.5 4.5 0 0 0 7 0M9 9.5h.01M15 9.5h.01"/>',
+    frown: '<circle cx="12" cy="12" r="9"/><path d="M8.5 16a4.5 4.5 0 0 1 7 0M9 9.5h.01M15 9.5h.01"/>',
+    meh: '<circle cx="12" cy="12" r="9"/><path d="M8.5 15h7M9 9.5h.01M15 9.5h.01"/>',
+    send: '<path d="M21 3 3 10l7 3 3 7z"/><path d="M10 13l4-4"/>',
+    attach: '<path d="m20 12-8 8a5 5 0 0 1-7-7l9-9a3.5 3.5 0 0 1 5 5l-9 9a2 2 0 0 1-3-3l8-8"/>',
+    grad: '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/>',
+    briefcase: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2M3 13h18"/>',
+    flag: '<path d="M5 21V4h11l-2 4 2 4H5"/>',
+    puzzle: '<path d="M10 3h4v3a2 2 0 1 0 4 0V3h3v7h-3a2 2 0 1 0 0 4h3v7h-7v-3a2 2 0 1 0-4 0v3H3v-7h3a2 2 0 1 0 0-4H3V3z"/>',
+    image: '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 17-6-6-9 9"/>',
+    filter: '<path d="M3 5h18l-7 8v6l-4 2v-8z"/>',
+    upload: '<path d="M12 15V3M7 8l5-5 5 5M5 14v6h14v-6"/>',
+    download: '<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>',
+    zap: '<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+  };
+  const M = {
+    '🌐': 'globe', '🛜': 'wifi', '⚖': 'scale', '🔀': 'shuffle', '⚙': 'gear', '🔐': 'lock', '🔒': 'lock', '🔑': 'key', '🔍': 'search', '🔎': 'search',
+    '🗄': 'database', '⚡': 'bolt', '💾': 'disk', '📨': 'mail', '📧': 'mail', '✉': 'mail', '📊': 'chart', '📈': 'up', '📉': 'down', '🚦': 'gauge', '🗑': 'trash',
+    '🔗': 'link', '✂': 'scissors', '📤': 'export', '📥': 'download', '↩': 'undo', '🏗': 'layers', '🎬': 'film', '🚗': 'car', '💬': 'chat', '🗨': 'chat',
+    '📸': 'camera', '📷': 'camera', '📦': 'box', '🗃': 'archive', '🔄': 'refresh', '🔁': 'refresh', '🏆': 'trophy', '🥇': 'trophy', '🔥': 'flame', '💡': 'bulb',
+    '📖': 'book', '📚': 'book', '📅': 'calendar', '📆': 'calendar', '🗓': 'calendar', '👁': 'eye', '🔢': 'hash', '📝': 'note', '✍': 'note', '✏': 'note',
+    '🚀': 'rocket', '👑': 'crown', '⭐': 'star', '🌟': 'star', '🤝': 'users', '👥': 'users', '❤': 'heart', '💖': 'heart', '🔖': 'bookmark', '⏱': 'clock',
+    '⏰': 'clock', '🕐': 'clock', '✅': 'check', '✔': 'check', '⚠': 'alert', '❌': 'x', '🎯': 'target', '🤖': 'robot', '📄': 'doc', '📃': 'doc', '📋': 'doc',
+    '📁': 'folder', '📂': 'folder', '🗂': 'folder', '👤': 'user', '🧑': 'user', '🔔': 'bell', '💰': 'money', '💵': 'money', '💳': 'money', '✨': 'sparkle',
+    '📍': 'pin', '🎙': 'mic', '🎤': 'mic', '📞': 'phone', '🏠': 'home', '💻': 'code', '🖥': 'code', '🧩': 'puzzle', '☁': 'cloud', '🛡': 'shield', '▶': 'play',
+    '⏸': 'pause', '➕': 'plus', '🪄': 'wand', '🧠': 'brain', '😊': 'smile', '🙂': 'smile', '😃': 'smile', '😀': 'smile', '😞': 'frown', '😠': 'frown',
+    '😡': 'frown', '😐': 'meh', '📎': 'attach', '🎓': 'grad', '💼': 'briefcase', '🚩': 'flag', '🖼': 'image', '🔧': 'gear', '🛠': 'gear', '⚗': 'gear',
+    '🔌': 'link', '🌍': 'globe', '🌎': 'globe', '📡': 'wifi', '🗺': 'globe',
+  };
+  const DROP = new Set(['🔴', '🟡', '🟢', '😰', '👋', '🎉', '🥳', '🙌', '💪', '👏', '😍', '🤩']);
+  const keys = Object.keys(M).concat([...DROP]).sort((a, b) => b.length - a.length);
+  const re = new RegExp('(' + keys.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')\\uFE0F?', 'gu');
+  function svg(name) {
+    return '<svg class="ei" viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + P[name] + '</svg>';
+  }
+  window.lineIcon = (name, size) => svg(name).replace(/1\.1em/g, size ? size + 'px' : '1.1em');
+  function swap(root) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: (n) => (n.parentNode && /^(SCRIPT|STYLE|TEXTAREA|INPUT|OPTION|TITLE)$/.test(n.parentNode.nodeName)) || n.parentNode.closest('svg') ? NodeFilter.FILTER_REJECT : (re.test(n.nodeValue) ? (re.lastIndex = 0, NodeFilter.FILTER_ACCEPT) : NodeFilter.FILTER_SKIP),
+    });
+    const hits = [];
+    while (walker.nextNode()) hits.push(walker.currentNode);
+    hits.forEach((node) => {
+      const html = node.nodeValue.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]))
+        .replace(re, (m, e) => (DROP.has(e) ? '' : svg(M[e])));
+      const span = document.createElement('span');
+      span.className = 'ei-wrap';
+      span.innerHTML = html.replace(/^\s+(?=<svg)/, '');
+      node.parentNode.replaceChild(span, node);
+    });
+  }
+  window.swapEmoji = swap;
+  const start = () => {
+    swap(document.body);
+    new MutationObserver((muts) => muts.forEach((m) => m.addedNodes.forEach((n) => {
+      if (n.nodeType === 1 && !n.classList.contains('ei-wrap')) swap(n);
+      else if (n.nodeType === 3 && n.parentNode) swap(n.parentNode);
+    }))).observe(document.body, { childList: true, subtree: true, characterData: false });
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();
+
+</script>
 </body>
 </html>
