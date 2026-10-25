@@ -928,6 +928,15 @@
   .sb-meter-bar span { display: block; height: 100%; background: var(--lamp-g); }
   .sb-meter-n { font-size: 13px; color: #B9BDC4; margin-top: 10px; }
   @keyframes lamp { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+  /* Phone nav: logo and CTA on the first row, the page links on a second
+     row that scrolls sideways. Pages start lower to clear both rows. */
+  @media (max-width: 640px) {
+    nav { height: auto; flex-wrap: wrap; padding: 8px 14px 0; row-gap: 4px; }
+    .nav-logo { flex: 1; }
+    .nav-links { order: 3; flex: 0 0 100%; flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; padding-bottom: 6px; }
+    .nav-link { font-size: 14px; padding: 6px 10px; }
+    .page { padding-top: 120px; }
+  }
   @media (prefers-reduced-motion: no-preference) {
     .sb-cords path { stroke-dasharray: 260; animation: cord 1.2s cubic-bezier(.16,1,.3,1) both; }
     .sb-cords path:nth-child(2n) { animation-delay: .1s; } .sb-cords path:nth-child(3n) { animation-delay: .2s; }
