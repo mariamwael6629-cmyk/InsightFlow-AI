@@ -44,7 +44,7 @@ async function saveCompanyProfile() {
 
 async function loadPlanInfo() {
   const p = await apiFetch('/api/settings/plan');
-  document.getElementById('plan-name-tag').textContent = `✦ ${p.plan_name}`;
+  document.getElementById('plan-name-tag').textContent = `${p.plan_name}`;
   document.getElementById('plan-price').innerHTML = `$${p.plan_price.toFixed(0)} <span>/ month</span>`;
   document.getElementById('plan-responses-label').textContent = `${p.responses_used.toLocaleString()} / ${p.responses_limit.toLocaleString()}`;
   document.getElementById('plan-responses-bar').style.width = `${Math.min(100, Math.round((p.responses_used / p.responses_limit) * 100))}%`;

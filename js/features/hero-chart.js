@@ -9,8 +9,8 @@ window.addEventListener('load', () => {
         {
           label: 'Positive',
           data: [55,58,61,60,64,67,65,69,71,70,72,75],
-          borderColor: '#3a5496',
-          backgroundColor: 'rgba(58,84,150,0.07)',
+          borderColor: '#845433',
+          backgroundColor: 'rgba(132,84,51,0.07)',
           fill: true, tension: 0.45, pointRadius: 0, borderWidth: 2.5
         },
         {
@@ -26,8 +26,8 @@ window.addEventListener('load', () => {
       responsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false }, tooltip: { enabled: false } },
       scales: {
-        x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#8b939f', font: { size: 11 } } },
-        y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#8b939f', font: { size: 11 } }, min: 0, max: 100 }
+        x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#9F958B', font: { size: 11 } } },
+        y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#9F958B', font: { size: 11 } }, min: 0, max: 100 }
       },
       animation: { duration: 1800, easing: 'easeInOutQuart' }
     }

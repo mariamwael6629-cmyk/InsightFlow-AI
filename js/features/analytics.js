@@ -28,8 +28,8 @@ async function loadTrendChart() {
   const data = {
     labels: points.map(p => new Date(p.stat_date + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'short' })),
     datasets: [
-      { label: 'Positive', data: points.map(p => p.positive_pct), borderColor: '#3a5496', backgroundColor: 'rgba(58,84,150,0.06)', fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#3a5496', borderWidth: 2 },
-      { label: 'Neutral',  data: points.map(p => p.neutral_pct),  borderColor: '#8b939f', backgroundColor: 'transparent', tension: 0.4, pointRadius: 4, pointBackgroundColor: '#8b939f', borderWidth: 2, borderDash: [5,4] },
+      { label: 'Positive', data: points.map(p => p.positive_pct), borderColor: '#845433', backgroundColor: 'rgba(132,84,51,0.06)', fill: true, tension: 0.4, pointRadius: 4, pointBackgroundColor: '#845433', borderWidth: 2 },
+      { label: 'Neutral',  data: points.map(p => p.neutral_pct),  borderColor: '#9F958B', backgroundColor: 'transparent', tension: 0.4, pointRadius: 4, pointBackgroundColor: '#9F958B', borderWidth: 2, borderDash: [5,4] },
       { label: 'Negative', data: points.map(p => p.negative_pct), borderColor: '#c53030', backgroundColor: 'transparent', tension: 0.4, pointRadius: 4, pointBackgroundColor: '#c53030', borderWidth: 2, borderDash: [3,3] }
     ]
   };
@@ -45,8 +45,8 @@ async function loadTrendChart() {
       responsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false } },
       scales: {
-        x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#8b939f', font: { size: 11 } } },
-        y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#8b939f', font: { size: 11 }, stepSize: 20 }, min: 0, max: 100 }
+        x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#9F958B', font: { size: 11 } } },
+        y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#9F958B', font: { size: 11 }, stepSize: 20 }, min: 0, max: 100 }
       }
     }
   });
