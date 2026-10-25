@@ -26,8 +26,8 @@ window.addEventListener('load', () => {
       responsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false }, tooltip: { enabled: false } },
       scales: {
-        x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#9F958B', font: { size: 11 } } },
-        y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#9F958B', font: { size: 11 } }, min: 0, max: 100 }
+        x: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#999491', font: { size: 11 } } },
+        y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { color: '#999491', font: { size: 11 } }, min: 0, max: 100 }
       },
       animation: { duration: 1800, easing: 'easeInOutQuart' }
     }

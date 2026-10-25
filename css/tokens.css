@@ -1,20 +1,20 @@
 :root {
   /* ── New palette ── */
-  --paper:        #f5f3ef;
-  --paper-2:      #ece9e3;
+  --paper:        #F3F2F1;
+  --paper-2:      #E8E7E7;
   --white:        #ffffff;
-  --ink:          #141210;
-  --ink-2:        #5F554B;
-  --ink-3:        #9F958B;
+  --ink:          #131211;
+  --ink-2:        #585452;
+  --ink-3:        #999491;
   --border:       rgba(0,0,0,0.07);
   --border2:      rgba(0,0,0,0.12);
   --accent:       #845433;
   --accent-lite:  #835434;
   --accent-soft:  #F0EEED;
   --good:         #784828;
-  --good-bg:      #EEECEA;
-  --warn:         #a0520a;
-  --warn-bg:      #fdf3e2;
+  --good-bg:      #EDECEB;
+  --warn:         #8C3B1E;
+  --warn-bg:      #F0EFEF;
   --danger:       #c53030;
   --danger-bg:    #fde8e6;
 

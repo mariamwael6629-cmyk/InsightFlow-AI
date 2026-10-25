@@ -1,7 +1,7 @@
 /* ── AUTH OVERLAY ── */
 .auth-overlay {
   position: fixed; inset: 0;
-  background: rgba(245,243,239,0.88);
+  background: rgba(243,242,241,0.88);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 2000;

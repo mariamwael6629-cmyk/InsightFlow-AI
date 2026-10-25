@@ -38,7 +38,7 @@ ISSUES = [
     ("Mobile layout", 22, "#ff5fa0"),
     ("Missing features", 19, "#a99dff"),
     ("Pricing clarity", 14, "#00d4aa"),
-    ("Support response", 11, "#ffb347"),
+    ("Support response", 11, "#DF8767"),
 ]
 
 RECOMMENDATIONS = [
